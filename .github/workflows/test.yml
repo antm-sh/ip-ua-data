@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - Test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install utils
+        run: sudo apt-get update && sudo apt-get -y --no-install-recommends install jq && pip3 install netaddr
+
+      - name: Run our scripts
+        id: release
+        run: |
+          ./7-get-abuse-ipdb.py
+          echo "builddate=$(date -Is)" >> $GITHUB_OUTPUT
+          echo "epochdate=$(date +%s)" >> $GITHUB_OUTPUT
