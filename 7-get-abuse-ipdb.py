@@ -30,6 +30,6 @@ with open(OUTFILE, 'w') as f:
     for line in response.text.splitlines():
         if line.strip() == "":
             continue
-        f.write(f'{line} {expiry_time}\n')
+        f.write(f'{line}\n')
 
 
