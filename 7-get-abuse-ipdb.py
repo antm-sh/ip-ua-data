@@ -4,13 +4,13 @@ import requests
 from datetime import datetime, timedelta
 
 
-ABUSE_IPS_DIR = "abuse_ipdb"
-OUTFILE = f"{ABUSE_IPS_DIR}/abuse-ips"
+ABUSE_IPS_DIR = "abuse-ipdb"
+OUTFILE = f"{ABUSE_IPS_DIR}/abusedb-ips"
 
 URL = "https://api.abuseipdb.com/api/v2/blacklist"
 LIMIT = str(10000)
 
-API_KEY = os.getenv('ABUSE_IPDB_API_KEY')
+API_KEY = 'os.getenv('ABUSE_IPDB_API_KEY')'
 expiry_time = int((datetime.now() + timedelta(hours=4)).timestamp())
 
 querystring = {
